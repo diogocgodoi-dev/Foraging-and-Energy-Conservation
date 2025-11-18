@@ -1,0 +1,244 @@
+/* General Page Specifications*/
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #000000;
+  line-height: 1.5;
+  height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+button {
+  font-size: 16pt;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5px 15px;
+  width: 40%;
+  height: 205%;
+  align-items: center;
+  background-color: #f8f8f8;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+/* Elements*/
+
+.grid {
+  border: solid black 4px;
+  display: grid;
+  margin: auto;
+  justify-content: center; /* centers grid horizontally */
+  align-content: center; /* centers grid vertically */
+  gap: 0px; /* optional: space between cells */
+  position: relative; /* optional if overlaying on an image */
+}
+
+.reward {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forager {
+  font-size: 15px;
+  text-align: center;
+  font-family: sans-serif, monospace;
+  color: black;
+  font-weight: 1000;
+}
+
+.past-forager {
+  font-size: 15px;
+  text-align: left;
+  font-family: sans-serif, monospace;
+  color: rgba(2, 2, 2, 0.578);
+  font-weight: 1000;
+}
+
+.energy-bar {
+  width: 1000px;
+  height: 40px;
+  background-color: hsl(130, 75%, 40%);
+  margin: auto;
+  border: solid 1.5px black;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #000000;
+  font-weight: 700;
+  vertical-align: middle;
+  line-height: 75px; /* The same as your div height */
+}
+
+.energy-label {
+  margin: 25px auto 10px auto;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 32px;
+  color: #000000;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* Modal Window*/
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  padding: 4rem;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: fixed; /* covers entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.25px);
+  z-index: 5;
+}
+
+#energy-guess {
+  display: block;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 2.1rem;
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* push buttons to the ends */
+  align-items: center;
+  width: 80%; /* controls distance between buttons */
+  margin: 30px auto; /* center container horizontally */
+  max-width: 700px; /* optional: prev*/
+}
+
+/* Full-page rating screen */
+#rating-screen {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.slider-container {
+  text-align: center;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Wrapper that aligns labels and slider evenly */
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%; /* consistent width for all sliders */
+  margin: 20px auto;
+  gap: 20px;
+}
+
+/* Sliders (applies to mood, energy, and confidence) */
+.slider-wrapper input[type="range"],
+#mood-slider,
+#energy-slider,
+#confidence-slider {
+  flex: 1;
+  border: 1px solid black;
+  width: 100%;
+  max-width: 700px;
+  accent-color: rgb(83, 83, 83);
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* Slider labels */
+.slider-label-left,
+.slider-label-right {
+  font-size: 1.7rem;
+  width: 120px;
+  text-align: center;
+}
+
+.loader {
+  border: 16px solid #f8f8f8; /* Light grey */
+  border-top: 16px solid rgb(83, 83, 83); /* Gray */
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 4s cubic-bezier(0.32, -0.01, 0.66, 0.99) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

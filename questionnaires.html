@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Foraging</title>
+    <link href="html_style.css" rel="stylesheet" />
+    <script src="jatos.js"></script>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <img
+        width="600"
+        src="img/image002.png"
+        style="margin: 25px 0px; margin-bottom: 30px"
+      />
+    </div>
+    <hr
+      style="
+        width: 100%;
+        border: 0.75px solid black;
+        color: black;
+        margin: auto;
+        margin-bottom: 30px;
+      "
+    />
+
+    <h2 style="text-align: center; margin-bottom: 40px">Questionnaires</h2>
+    <div id="BDI-Page" style="display: block">
+      <form id="BDI-II">
+        <p>
+          Please read each group of statements carefully, then pick out the
+          <b>one statement</b> in each group which best describes the way you
+          have been feeling during the <b>past 2 weeks, including today.</b> If
+          several statements in the group seem to apply equally well, simply
+          select the statement which has the largest number. Be sure that you do
+          <b>not</b> select more than one statement for Item 15 (change in
+          sleeping pattern) and Item 17 (change in appetite).
+        </p>
+
+        <!-- 1 Sadness -->
+        <div style="margin-top: 30px">
+          <h4>1 Sadness</h4>
+          <label
+            ><input type="radio" name="bdi1" value="0" required /> <b>0</b> I do
+            not feel sad.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi1" value="1" /> <b>1</b> I feel sad
+            much of the time.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi1" value="2" /> <b>2</b> I am sad all
+            the time.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi1" value="3" /> <b>3</b> I am so sad
+            or unhappy that I can't stand it.</label
+          ><br />
+        </div>
+
+        <!-- 2 Pessimism -->
+        <div style="margin-top: 30px">
+          <h4>2 Pessimism</h4>
+          <label
+            ><input type="radio" name="bdi2" value="0" required /> <b>0</b> I am
+            not discouraged about my future.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi2" value="1" /> <b>1</b> I feel more
+            discouraged about my future than I used to be.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi2" value="2" /> <b>2</b> I do not
+            expect things to work out for me.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi2" value="3" /> <b>3</b> I feel my
+            future is hopeless and will only get worse.</label
+          ><br />
+        </div>
+
+        <!-- 3 Past Failure -->
+        <div style="margin-top: 30px">
+          <h4>3 Past Failure</h4>
+          <label
+            ><input type="radio" name="bdi3" value="0" required /> <b>0</b> I do
+            not feel like a failure.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi3" value="1" /> <b>1</b> I have failed
+            more than I should have.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi3" value="2" /> <b>2</b> As I look
+            back, I see a lot of failures.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi3" value="3" /> <b>3</b> I feel I am a
+            total failure as a person.</label
+          ><br />
+        </div>
+
+        <!-- 4 Loss of Pleasure -->
+        <div style="margin-top: 30px">
+          <h4>4 Loss of Pleasure</h4>
+          <label
+            ><input type="radio" name="bdi4" value="0" required /> <b>0</b> I
+            get as much pleasure as I ever did from the things I enjoy.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi4" value="1" /> <b>1</b> I don't enjoy
+            things as much as I used to.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi4" value="2" /> <b>2</b> I get very
+            little pleasure from the things I used to enjoy.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi4" value="3" /> <b>3</b> I can’t get
+            any pleasure from the things I used to enjoy.</label
+          ><br />
+        </div>
+
+        <!-- 5 Guilty Feelings -->
+        <div style="margin-top: 30px">
+          <h4>5 Guilty Feelings</h4>
+          <label
+            ><input type="radio" name="bdi5" value="0" required /> <b>0</b> I
+            don't feel particularly guilty.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi5" value="1" /> <b>1</b> I feel guilty
+            over many things I have done or should have done.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi5" value="2" /> <b>2</b> I feel quite
+            guilty most of the time.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi5" value="3" /> <b>3</b> I feel guilty
+            all of the time.</label
+          ><br />
+        </div>
+
+        <!-- 6 Punishment Feelings -->
+        <div style="margin-top: 30px">
+          <h4>6 Punishment Feelings</h4>
+          <label
+            ><input type="radio" name="bdi6" value="0" required /> <b>0</b> I
+            don't feel I am being punished.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi6" value="1" /> <b>1</b> I feel I may
+            be punished.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi6" value="2" /> <b>2</b> I expect to
+            be punished.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi6" value="3" /> <b>3</b> I feel I am
+            being punished.</label
+          ><br />
+        </div>
+
+        <!-- 7 Self Dislike -->
+        <div style="margin-top: 30px">
+          <h4>7 Self Dislike</h4>
+          <label
+            ><input type="radio" name="bdi7" value="0" required /> <b>0</b> I
+            feel the same about myself as ever.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi7" value="1" /> <b>1</b> I have lost
+            confidence in myself.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi7" value="2" /> <b>2</b> I am
+            disappointed in myself.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi7" value="3" /> <b>3</b> I dislike
+            myself.</label
+          ><br />
+        </div>
+
+        <!-- 8 Self Criticism -->
+        <div style="margin-top: 30px">
+          <h4>8 Self Criticism</h4>
+          <label
+            ><input type="radio" name="bdi8" value="0" required /> <b>0</b> I
+            don't criticize or blame myself more than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi8" value="1" /> <b>1</b> I am more
+            critical of myself than I used to be.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi8" value="2" /> <b>2</b> I criticize
+            myself for all of my faults.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi8" value="3" /> <b>3</b> I blame
+            myself for everything bad that happens.</label
+          ><br />
+        </div>
+
+        <!-- 9 Crying -->
+        <div style="margin-top: 30px">
+          <h4>9 Crying</h4>
+          <label
+            ><input type="radio" name="bdi9" value="0" required /> <b>0</b> I
+            don't cry any more than I used to.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi9" value="1" /> <b>1</b> I cry more
+            than I used to.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi9" value="2" /> <b>2</b> I cry over
+            every little thing.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi9" value="3" /> <b>3</b> I feel like
+            crying but I can’t.</label
+          ><br />
+        </div>
+
+        <!-- 10 Agitation -->
+        <div style="margin-top: 30px">
+          <h4>10 Agitation</h4>
+          <label
+            ><input type="radio" name="bdi10" value="0" required /> <b>0</b> I
+            am no more restless or wound up than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi10" value="1" /> <b>1</b> I feel more
+            restless or wound up than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi10" value="2" /> <b>2</b> I am so
+            restless or agitated that it’s hard to stay still.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi10" value="3" /> <b>3</b> I am so
+            restless or agitated I have to keep moving or doing
+            something.</label
+          ><br />
+        </div>
+
+        <!-- 11 Loss of Interest -->
+        <div style="margin-top: 30px">
+          <h4>11 Loss of Interest</h4>
+          <label
+            ><input type="radio" name="bdi11" value="0" required /> <b>0</b> I
+            have not lost interest in other people or activities.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi11" value="1" /> <b>1</b> I am less
+            interested in other people or things than before.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi11" value="2" /> <b>2</b> I have lost
+            most of my interest in other people or things.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi11" value="3" /> <b>3</b> It’s hard to
+            get interested in anything.</label
+          ><br />
+        </div>
+
+        <!-- 12 Indecisiveness -->
+        <div style="margin-top: 30px">
+          <h4>12 Indecisiveness</h4>
+          <label
+            ><input type="radio" name="bdi12" value="0" required /> <b>0</b> I
+            make decisions about as well as ever.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi12" value="1" /> <b>1</b> I find it
+            more difficult to make decisions than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi12" value="2" /> <b>2</b> I have much
+            greater difficulty in making decisions than I used to.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi12" value="3" /> <b>3</b> I have
+            trouble making any decisions.</label
+          ><br />
+        </div>
+
+        <!-- 13 Worthlessness -->
+        <div style="margin-top: 30px">
+          <h4>13 Worthlessness</h4>
+          <label
+            ><input type="radio" name="bdi13" value="0" required /> <b>0</b> I
+            do not feel I am worthless.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi13" value="1" /> <b>1</b> I don’t
+            consider myself as worthwhile or useful as I used to.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi13" value="2" /> <b>2</b> I feel more
+            worthless as compared to other people.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi13" value="3" /> <b>3</b> I feel
+            utterly worthless.</label
+          ><br />
+        </div>
+
+        <!-- 14 Loss of Energy -->
+        <div style="margin-top: 30px">
+          <h4>14 Loss of Energy</h4>
+          <label
+            ><input type="radio" name="bdi14" value="0" required /> <b>0</b> I
+            have as much energy as ever.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi14" value="1" /> <b>1</b> I have less
+            energy than I used to have.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi14" value="2" /> <b>2</b> I don’t have
+            enough energy to do very much.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi14" value="3" /> <b>3</b> I don’t have
+            enough energy to do anything.</label
+          ><br />
+        </div>
+
+        <!-- 15 Change in Sleeping Pattern -->
+        <div style="margin-top: 30px">
+          <h4>15 Change in Sleeping Pattern</h4>
+          <label
+            ><input type="radio" name="bdi15" value="0" required /> <b>0</b> I
+            have not experienced any change in my sleeping pattern.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="1a" /> <b>1a</b> I sleep
+            somewhat more than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="1b" /> <b>1b</b> I sleep
+            somewhat less than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="2a" /> <b>2a</b> I sleep a
+            lot more than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="2b" /> <b>2b</b> I sleep a
+            lot less than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="3a" /> <b>3a</b> I sleep
+            most of the day.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi15" value="3b" /> <b>3b</b> I wake up
+            1-2 hours early and can’t get back to sleep.</label
+          ><br />
+        </div>
+
+        <!-- 16 Irritability -->
+        <div style="margin-top: 30px">
+          <h4>16 Irritability</h4>
+          <label
+            ><input type="radio" name="bdi16" value="0" required /> <b>0</b> I
+            am no more irritable than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi16" value="1" /> <b>1</b> I am more
+            irritable than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi16" value="2" /> <b>2</b> I am much
+            more irritable than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi16" value="3" /> <b>3</b> I am
+            irritable all the time.</label
+          ><br />
+        </div>
+
+        <!-- 17 Change in Appetite -->
+        <div style="margin-top: 30px">
+          <h4>17 Change in Appetite</h4>
+          <label
+            ><input type="radio" name="bdi17" value="0" required /> <b>0</b> I
+            have not experienced any change in my appetite.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="1a" /> <b>1a</b> My
+            appetite is somewhat less than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="1b" /> <b>1b</b> My
+            appetite is somewhat greater than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="2a" /> <b>2a</b> My
+            appetite is much less than before.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="2b" /> <b>2b</b> My
+            appetite is much greater than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="3a" /> <b>3a</b> I have no
+            appetite at all.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi17" value="3b" /> <b>3b</b> I crave
+            food all the time.</label
+          ><br />
+        </div>
+
+        <!-- 18 Concentration Difficulty -->
+        <div style="margin-top: 30px">
+          <h4>18 Concentration Difficulty</h4>
+          <label
+            ><input type="radio" name="bdi18" value="0" required /> <b>0</b> I
+            can concentrate as well as ever.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi18" value="1" /> <b>1</b> I can’t
+            concentrate as well as usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi18" value="2" /> <b>2</b> It’s hard to
+            keep my mind on anything for very long.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi18" value="3" /> <b>3</b> I find I
+            can’t concentrate on anything.</label
+          ><br />
+        </div>
+
+        <!-- 19 Tiredness or Fatigue -->
+        <div style="margin-top: 30px">
+          <h4>19 Tiredness or Fatigue</h4>
+          <label
+            ><input type="radio" name="bdi19" value="0" required /> <b>0</b> I
+            am no more tired or fatigued than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi19" value="1" /> <b>1</b> I get tired
+            or fatigued more easily than usual.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi19" value="2" /> <b>2</b> I am too
+            tired or fatigued to do a lot of the things I used to do.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi19" value="3" /> <b>3</b> I am too
+            tired or fatigued to do most of the things I used to do.</label
+          ><br />
+        </div>
+
+        <!-- 20 Loss of Interest in Sex -->
+        <div style="margin-top: 30px">
+          <h4>20 Loss of Interest in Sex</h4>
+          <label
+            ><input type="radio" name="bdi20" value="0" required /> <b>0</b> I
+            have not noticed any recent change in my interest in sex.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi20" value="1" /> <b>1</b> I am less
+            interested in sex than I used to be.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi20" value="2" /> <b>2</b> I am much
+            less interested in sex now.</label
+          ><br />
+          <label
+            ><input type="radio" name="bdi20" value="3" /> <b>3</b> I have lost
+            interest in sex completely.</label
+          ><br />
+        </div>
+
+      </form>
+
+            <button id="button-bdi" style="display: block; margin: 50px auto">
+        Continue
+      </button>
+
+    </div><div id="BAI-Page" style="display: none">
+  <form id="BAI">
+    <p>
+      Below is a list of common symptoms of anxiety. Please carefully read
+      each item in the list. Indicate how much you have been bothered by
+      each symptom during the <b>PAST WEEK, INCLUDING TODAY</b>, by
+      selecting the corresponding space in the column next to each symptom.
+    </p>
+
+    <!-- Header row -->
+    <div class="bai-item bai-header">
+      <p></p>
+      <div class="bai-headers">
+        <label><b>Not at all</b></label>
+        <label><b>Mildly</b><br /><small>It did not bother me much</small></label>
+        <label><b>Moderately</b><br /><small>It was unpleasant but I could stand it</small></label>
+        <label><b>Severely</b><br /><small>I could barely stand it</small></label>
+      </div>
+    </div>
+
+    <!-- 1. Numbness or tingling -->
+    <div class="bai-item">
+      <p>1. Numbness or tingling</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai1" value="0" /></label>
+        <label><input type="radio" name="bai1" value="1" /></label>
+        <label><input type="radio" name="bai1" value="2" /></label>
+        <label><input type="radio" name="bai1" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 2. Feeling hot -->
+    <div class="bai-item">
+      <p>2. Feeling hot</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai2" value="0" /></label>
+        <label><input type="radio" name="bai2" value="1" /></label>
+        <label><input type="radio" name="bai2" value="2" /></label>
+        <label><input type="radio" name="bai2" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 3. Wobbliness in legs -->
+    <div class="bai-item">
+      <p>3. Wobbliness in legs</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai3" value="0" /></label>
+        <label><input type="radio" name="bai3" value="1" /></label>
+        <label><input type="radio" name="bai3" value="2" /></label>
+        <label><input type="radio" name="bai3" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 4. Unable to relax -->
+    <div class="bai-item">
+      <p>4. Unable to relax</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai4" value="0" /></label>
+        <label><input type="radio" name="bai4" value="1" /></label>
+        <label><input type="radio" name="bai4" value="2" /></label>
+        <label><input type="radio" name="bai4" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 5. Fear of the worst happening -->
+    <div class="bai-item">
+      <p>5. Fear of the worst happening</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai5" value="0" /></label>
+        <label><input type="radio" name="bai5" value="1" /></label>
+        <label><input type="radio" name="bai5" value="2" /></label>
+        <label><input type="radio" name="bai5" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 6. Dizzy or lightheaded -->
+    <div class="bai-item">
+      <p>6. Dizzy or lightheaded</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai6" value="0" /></label>
+        <label><input type="radio" name="bai6" value="1" /></label>
+        <label><input type="radio" name="bai6" value="2" /></label>
+        <label><input type="radio" name="bai6" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 7. Heart pounding or racing -->
+    <div class="bai-item">
+      <p>7. Heart pounding or racing</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai7" value="0" /></label>
+        <label><input type="radio" name="bai7" value="1" /></label>
+        <label><input type="radio" name="bai7" value="2" /></label>
+        <label><input type="radio" name="bai7" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 8. Unsteady -->
+    <div class="bai-item">
+      <p>8. Unsteady</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai8" value="0" /></label>
+        <label><input type="radio" name="bai8" value="1" /></label>
+        <label><input type="radio" name="bai8" value="2" /></label>
+        <label><input type="radio" name="bai8" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 9. Terrified -->
+    <div class="bai-item">
+      <p>9. Terrified</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai9" value="0" /></label>
+        <label><input type="radio" name="bai9" value="1" /></label>
+        <label><input type="radio" name="bai9" value="2" /></label>
+        <label><input type="radio" name="bai9" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 10. Nervous -->
+    <div class="bai-item">
+      <p>10. Nervous</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai10" value="0" /></label>
+        <label><input type="radio" name="bai10" value="1" /></label>
+        <label><input type="radio" name="bai10" value="2" /></label>
+        <label><input type="radio" name="bai10" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 11. Feelings of choking -->
+    <div class="bai-item">
+      <p>11. Feelings of choking</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai11" value="0" /></label>
+        <label><input type="radio" name="bai11" value="1" /></label>
+        <label><input type="radio" name="bai11" value="2" /></label>
+        <label><input type="radio" name="bai11" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 12. Hands trembling -->
+    <div class="bai-item">
+      <p>12. Hands trembling</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai12" value="0" /></label>
+        <label><input type="radio" name="bai12" value="1" /></label>
+        <label><input type="radio" name="bai12" value="2" /></label>
+        <label><input type="radio" name="bai12" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 13. Shaky -->
+    <div class="bai-item">
+      <p>13. Shaky</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai13" value="0" /></label>
+        <label><input type="radio" name="bai13" value="1" /></label>
+        <label><input type="radio" name="bai13" value="2" /></label>
+        <label><input type="radio" name="bai13" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 14. Fear of losing control -->
+    <div class="bai-item">
+      <p>14. Fear of losing control</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai14" value="0" /></label>
+        <label><input type="radio" name="bai14" value="1" /></label>
+        <label><input type="radio" name="bai14" value="2" /></label>
+        <label><input type="radio" name="bai14" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 15. Difficulty breathing -->
+    <div class="bai-item">
+      <p>15. Difficulty breathing</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai15" value="0" /></label>
+        <label><input type="radio" name="bai15" value="1" /></label>
+        <label><input type="radio" name="bai15" value="2" /></label>
+        <label><input type="radio" name="bai15" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 16. Fear of dying -->
+    <div class="bai-item">
+      <p>16. Fear of dying</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai16" value="0" /></label>
+        <label><input type="radio" name="bai16" value="1" /></label>
+        <label><input type="radio" name="bai16" value="2" /></label>
+        <label><input type="radio" name="bai16" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 17. Scared -->
+    <div class="bai-item">
+      <p>17. Scared</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai17" value="0" /></label>
+        <label><input type="radio" name="bai17" value="1" /></label>
+        <label><input type="radio" name="bai17" value="2" /></label>
+        <label><input type="radio" name="bai17" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 18. Indigestion or discomfort in abdomen -->
+    <div class="bai-item">
+      <p>18. Indigestion or discomfort in abdomen</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai18" value="0" /></label>
+        <label><input type="radio" name="bai18" value="1" /></label>
+        <label><input type="radio" name="bai18" value="2" /></label>
+        <label><input type="radio" name="bai18" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 19. Faint -->
+    <div class="bai-item">
+      <p>19. Faint</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai19" value="0" /></label>
+        <label><input type="radio" name="bai19" value="1" /></label>
+        <label><input type="radio" name="bai19" value="2" /></label>
+        <label><input type="radio" name="bai19" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 20. Face flushed -->
+    <div class="bai-item">
+      <p>20. Face flushed</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai20" value="0" /></label>
+        <label><input type="radio" name="bai20" value="1" /></label>
+        <label><input type="radio" name="bai20" value="2" /></label>
+        <label><input type="radio" name="bai20" value="3" /></label>
+      </div>
+    </div>
+
+    <!-- 21. Sweating (not due to heat) -->
+    <div class="bai-item">
+      <p>21. Sweating (not due to heat)</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="bai21" value="0" /></label>
+        <label><input type="radio" name="bai21" value="1" /></label>
+        <label><input type="radio" name="bai21" value="2" /></label>
+        <label><input type="radio" name="bai21" value="3" /></label>
+      </div>
+    </div>
+
+
+
+
+      <button id="button-bai" style="display: block; margin: 50px auto">
+        Continue
+      </button>
+    </div>
+<div id="SHAPS-Page" style="display: none">
+  <form id="SHAPS">
+    <p>
+      This questionnaire is designed to measure your ability to experience
+      pleasure in the last few days. It is important to read each statement
+      <b>very carefully</b>. Select one of the buttons to indicate how much
+      you agree or disagree with each statement.
+    </p>
+
+    <!-- 1. I would enjoy my favourite television or radio programme -->
+    <div style="margin-top: 30px">
+      <h4>1. I would enjoy my favourite television or radio programme</h4>
+      <label><input type="radio" name="shaps1" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps1" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps1" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps1" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 2. I would enjoy being with my family or close friends -->
+    <div style="margin-top: 30px">
+      <h4>2. I would enjoy being with my family or close friends</h4>
+      <label><input type="radio" name="shaps2" value="3" required /> Definitely agree</label><br />
+      <label><input type="radio" name="shaps2" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps2" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps2" value="0" /> Strongly disagree</label><br />
+    </div>
+
+    <!-- 3. I would find pleasure in my hobbies and pastimes -->
+    <div style="margin-top: 30px">
+      <h4>3. I would find pleasure in my hobbies and pastimes</h4>
+      <label><input type="radio" name="shaps3" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps3" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps3" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps3" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 4. I would be able to enjoy my favourite meal -->
+    <div style="margin-top: 30px">
+      <h4>4. I would be able to enjoy my favourite meal</h4>
+      <label><input type="radio" name="shaps4" value="3" required /> Definitely agree</label><br />
+      <label><input type="radio" name="shaps4" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps4" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps4" value="0" /> Strongly disagree</label><br />
+    </div>
+
+    <!-- 5. I would enjoy a warm bath or refreshing shower -->
+    <div style="margin-top: 30px">
+      <h4>5. I would enjoy a warm bath or refreshing shower</h4>
+      <label><input type="radio" name="shaps5" value="3" required /> Definitely agree</label><br />
+      <label><input type="radio" name="shaps5" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps5" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps5" value="0" /> Strongly disagree</label><br />
+    </div>
+
+    <!-- 6. I would find pleasure in the scent of flowers or the smell of a fresh sea breeze or freshly baked bread -->
+    <div style="margin-top: 30px">
+      <h4>6. I would find pleasure in the scent of flowers or the smell of a fresh sea breeze or freshly baked bread</h4>
+      <label><input type="radio" name="shaps6" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps6" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps6" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps6" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 7. I would enjoy seeing other people's smiling faces -->
+    <div style="margin-top: 30px">
+      <h4>7. I would enjoy seeing other people's smiling faces</h4>
+      <label><input type="radio" name="shaps7" value="3" required /> Definitely agree</label><br />
+      <label><input type="radio" name="shaps7" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps7" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps7" value="0" /> Strongly disagree</label><br />
+    </div>
+
+    <!-- 8. I would enjoy looking smart when I have made an effort with my appearance -->
+    <div style="margin-top: 30px">
+      <h4>8. I would enjoy looking smart when I have made an effort with my appearance</h4>
+      <label><input type="radio" name="shaps8" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps8" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps8" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps8" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 9. I would enjoy reading a book, magazine or newspaper -->
+    <div style="margin-top: 30px">
+      <h4>9. I would enjoy reading a book, magazine or newspaper</h4>
+      <label><input type="radio" name="shaps9" value="3" required /> Definitely agree</label><br />
+      <label><input type="radio" name="shaps9" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps9" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps9" value="0" /> Strongly disagree</label><br />
+    </div>
+
+    <!-- 10. I would enjoy a cup of tea or coffee or my favourite drink -->
+    <div style="margin-top: 30px">
+      <h4>10. I would enjoy a cup of tea or coffee or my favourite drink</h4>
+      <label><input type="radio" name="shaps10" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps10" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps10" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps10" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 11. I would find pleasure in small things, e.g. bright sunny day, a telephone call from a friend -->
+    <div style="margin-top: 30px">
+      <h4>11. I would find pleasure in small things, e.g. bright sunny day, a telephone call from a friend</h4>
+      <label><input type="radio" name="shaps11" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps11" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps11" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps11" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 12. I would be able to enjoy a beautiful landscape or view -->
+    <div style="margin-top: 30px">
+      <h4>12. I would be able to enjoy a beautiful landscape or view</h4>
+      <label><input type="radio" name="shaps12" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps12" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps12" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps12" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 13. I would get pleasure from helping others -->
+    <div style="margin-top: 30px">
+      <h4>13. I would get pleasure from helping others</h4>
+      <label><input type="radio" name="shaps13" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps13" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps13" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps13" value="3" /> Strongly agree</label><br />
+    </div>
+
+    <!-- 14. I would feel pleasure when I receive praise from other people -->
+    <div style="margin-top: 30px">
+      <h4>14. I would feel pleasure when I receive praise from other people</h4>
+      <label><input type="radio" name="shaps14" value="0" required /> Strongly disagree</label><br />
+      <label><input type="radio" name="shaps14" value="1" /> Disagree</label><br />
+      <label><input type="radio" name="shaps14" value="2" /> Agree</label><br />
+      <label><input type="radio" name="shaps14" value="3" /> Strongly agree</label><br />
+    </div>
+
+  </form>
+
+      <button id="button-shaps" style="display: block; margin: 50px auto">
+        Continue
+      </button>
+    </div>
+
+<!-- RRS-10 Page -->
+<div id="RRS-10-Page" style="display: none">
+  <form id="RRS-10">
+    <p>
+      People think and do many things when they feel depressed. Please read
+      each of the items below and indicate whether you never, sometimes,
+      often or always think each one when you feel sad, down or depressed.
+      Please indicate what you
+      <b>generally think or do, not what you think you should think or do</b>.
+    </p>
+
+    <!-- Header row -->
+    <div class="bai-item bai-header">
+      <p></p>
+      <div class="bai-headers">
+        <label><b>Almost never</b></label>
+        <label><b>Sometimes</b></label>
+        <label><b>Often</b></label>
+        <label><b>Almost always</b></label>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="bai-item">
+      <p>1. Think “What am I doing to deserve this?”</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs1" value="1" required /></label>
+        <label><input type="radio" name="rrs1" value="2" /></label>
+        <label><input type="radio" name="rrs1" value="3" /></label>
+        <label><input type="radio" name="rrs1" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="bai-item">
+      <p>2. Analyse recent events to try and understand why you are depressed</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs2" value="1" required /></label>
+        <label><input type="radio" name="rrs2" value="2" /></label>
+        <label><input type="radio" name="rrs2" value="3" /></label>
+        <label><input type="radio" name="rrs2" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="bai-item">
+      <p>3. Think "Why do I always react this way?"</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs3" value="1" required /></label>
+        <label><input type="radio" name="rrs3" value="2" /></label>
+        <label><input type="radio" name="rrs3" value="3" /></label>
+        <label><input type="radio" name="rrs3" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="bai-item">
+      <p>4. Go away by yourself and think about why you feel this way</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs4" value="1" required /></label>
+        <label><input type="radio" name="rrs4" value="2" /></label>
+        <label><input type="radio" name="rrs4" value="3" /></label>
+        <label><input type="radio" name="rrs4" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="bai-item">
+      <p>5. Write down what you are thinking and analyse it</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs5" value="1" required /></label>
+        <label><input type="radio" name="rrs5" value="2" /></label>
+        <label><input type="radio" name="rrs5" value="3" /></label>
+        <label><input type="radio" name="rrs5" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="bai-item">
+      <p>6. Think about a recent situation, wishing it had gone better</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs6" value="1" required /></label>
+        <label><input type="radio" name="rrs6" value="2" /></label>
+        <label><input type="radio" name="rrs6" value="3" /></label>
+        <label><input type="radio" name="rrs6" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="bai-item">
+      <p>7. Think "Why do I have problems other people don't have?"</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs7" value="1" required /></label>
+        <label><input type="radio" name="rrs7" value="2" /></label>
+        <label><input type="radio" name="rrs7" value="3" /></label>
+        <label><input type="radio" name="rrs7" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="bai-item">
+      <p>8. Think “Why can’t I handle things better?”</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs8" value="1" required /></label>
+        <label><input type="radio" name="rrs8" value="2" /></label>
+        <label><input type="radio" name="rrs8" value="3" /></label>
+        <label><input type="radio" name="rrs8" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="bai-item">
+      <p>9. Analyse your personality to try to understand why you are depressed</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs9" value="1" required /></label>
+        <label><input type="radio" name="rrs9" value="2" /></label>
+        <label><input type="radio" name="rrs9" value="3" /></label>
+        <label><input type="radio" name="rrs9" value="4" /></label>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="bai-item">
+      <p>10. Go someplace alone to think about your feelings</p>
+      <div class="bai-buttons">
+        <label><input type="radio" name="rrs10" value="1" required /></label>
+        <label><input type="radio" name="rrs10" value="2" /></label>
+        <label><input type="radio" name="rrs10" value="3" /></label>
+        <label><input type="radio" name="rrs10" value="4" /></label>
+      </div>
+    </div>
+
+  </form>
+        <button id="button-rrs-10" style="display: block; margin: 50px auto">
+        Continue
+      </button>
+    </div>
+
+</div>
+
+
+
+<!-- IUS-12 Page -->
+<div id="IUS-12-Page" style="display: none">
+  <form id="IUS-12">
+    <p>
+      You will find below a series of statements which describe how people
+      may react to the uncertainties of life. Please use the scale below to
+      describe to what extent each item is characteristic of you. Please
+      select a number (1 to 5) that describes you best.
+    </p>
+
+    <div class="ius-headers">
+      <label><b>1. Not at all characteristic of me</b></label>
+      <label><b>2.</b></label>
+      <label><b>3. Somewhat characteristic of me</b></label>
+      <label><b>4.</b></label>
+      <label><b>5. Entirely characteristic of me</b></label>
+    </div>
+
+    <!-- 1 -->
+    <div class="ius-item">
+      <p>1. Unforeseen events upset me greatly</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius1" value="1" required /></label>
+        <label><input type="radio" name="ius1" value="2" /></label>
+        <label><input type="radio" name="ius1" value="3" /></label>
+        <label><input type="radio" name="ius1" value="4" /></label>
+        <label><input type="radio" name="ius1" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="ius-item">
+      <p>2. It frustrates me not having all the information I need</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius2" value="1" required /></label>
+        <label><input type="radio" name="ius2" value="2" /></label>
+        <label><input type="radio" name="ius2" value="3" /></label>
+        <label><input type="radio" name="ius2" value="4" /></label>
+        <label><input type="radio" name="ius2" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="ius-item">
+      <p>3. One should always look ahead so as to avoid surprises</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius3" value="1" required /></label>
+        <label><input type="radio" name="ius3" value="2" /></label>
+        <label><input type="radio" name="ius3" value="3" /></label>
+        <label><input type="radio" name="ius3" value="4" /></label>
+        <label><input type="radio" name="ius3" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="ius-item">
+      <p>4. A small, unforeseen event can spoil everything, even with the best of planning</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius4" value="1" required /></label>
+        <label><input type="radio" name="ius4" value="2" /></label>
+        <label><input type="radio" name="ius4" value="3" /></label>
+        <label><input type="radio" name="ius4" value="4" /></label>
+        <label><input type="radio" name="ius4" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="ius-item">
+      <p>5. I always want to know what the future has in store for me</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius5" value="1" required /></label>
+        <label><input type="radio" name="ius5" value="2" /></label>
+        <label><input type="radio" name="ius5" value="3" /></label>
+        <label><input type="radio" name="ius5" value="4" /></label>
+        <label><input type="radio" name="ius5" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="ius-item">
+      <p>6. I can’t stand being taken by surprise</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius6" value="1" required /></label>
+        <label><input type="radio" name="ius6" value="2" /></label>
+        <label><input type="radio" name="ius6" value="3" /></label>
+        <label><input type="radio" name="ius6" value="4" /></label>
+        <label><input type="radio" name="ius6" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="ius-item">
+      <p>7. I should be able to organize everything in advance</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius7" value="1" required /></label>
+        <label><input type="radio" name="ius7" value="2" /></label>
+        <label><input type="radio" name="ius7" value="3" /></label>
+        <label><input type="radio" name="ius7" value="4" /></label>
+        <label><input type="radio" name="ius7" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="ius-item">
+      <p>8. Uncertainty keeps me from living a full life</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius8" value="1" required /></label>
+        <label><input type="radio" name="ius8" value="2" /></label>
+        <label><input type="radio" name="ius8" value="3" /></label>
+        <label><input type="radio" name="ius8" value="4" /></label>
+        <label><input type="radio" name="ius8" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="ius-item">
+      <p>9. When it’s time to act, uncertainty paralyses me</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius9" value="1" required /></label>
+        <label><input type="radio" name="ius9" value="2" /></label>
+        <label><input type="radio" name="ius9" value="3" /></label>
+        <label><input type="radio" name="ius9" value="4" /></label>
+        <label><input type="radio" name="ius9" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="ius-item">
+      <p>10. When I am uncertain I can’t function very well</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius10" value="1" required /></label>
+        <label><input type="radio" name="ius10" value="2" /></label>
+        <label><input type="radio" name="ius10" value="3" /></label>
+        <label><input type="radio" name="ius10" value="4" /></label>
+        <label><input type="radio" name="ius10" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="ius-item">
+      <p>11. The smallest doubt can stop me from acting</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius11" value="1" required /></label>
+        <label><input type="radio" name="ius11" value="2" /></label>
+        <label><input type="radio" name="ius11" value="3" /></label>
+        <label><input type="radio" name="ius11" value="4" /></label>
+        <label><input type="radio" name="ius11" value="5" /></label>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="ius-item">
+      <p>12. I must get away from all uncertain situations</p>
+      <div class="ius-buttons">
+        <label><input type="radio" name="ius12" value="1" required /></label>
+        <label><input type="radio" name="ius12" value="2" /></label>
+        <label><input type="radio" name="ius12" value="3" /></label>
+        <label><input type="radio" name="ius12" value="4" /></label>
+        <label><input type="radio" name="ius12" value="5" /></label>
+      </div>
+    </div>
+
+    <button id="button-ius-12" type="button" style="display: block; margin: 50px auto">
+      Continue
+    </button>
+  </form>
+</div>
+
+  <div id="Debrief-Page" style="display: block">
+
+      <h2 style="text-align: center">
+        Online Foraging and Energy Conservation
+      </h2>
+
+    <h3 style="text-align: center; margin-bottom: 40px">Debrief</h3>
+
+    <p style="margin-top: 30px">You have now reached the end of the experiment. Well done for doing reaching this stage and thank you for participating! The purpose of this experiment was to investigate how exploratory behaviour in this task was associated with anxiety and depression symptoms. </p> 
+    <p style="margin-top: 30px">During this task you were presented with different environments, with either a or low amount of energy points associated with each. The summer and winter appearances of the environments were matched to be associated with either high or low amount of energy points in the environment. Additionally, the rewards were concentrated on different objects in the environment for different trials: At times trees, at others, rivers and mountains. The reward would be concentrated on one of these element categories for 6 consecutive trials each.</p>
+    <p style="margin-top: 30px">Our aim was to measure how much people will explore the environment in different conditions, depending on their prior knowledge and experiences of the rewards associated with a different objects. Furthermore, we aim to understand if exploratory behaviour is correlated with mental health symptoms, as well as tendencies measured in the questionnaires.</p>
+      <p style="margin-top: 30px">
+        If wish to withdraw your data now, please press the "Cancel" button available on the bottom right part of your screen. Doing so, your data will be completely deleted. However, if you press the "Finish Experiment" button, we will not be able to delete your data.
+      </p>
+
+    <p style="margin-top: 30px">In case you experienced any distress as a result of the study, contact your trusted medical professional. We have also separated a selection of useful mental health resources that may help you in this situation:</p>
+    <p><a href="https://findahelpline.com/k"
+          >Find a Helpline</a></p>
+    <p><a href="https://www.samaritans.org/how-we-can-help/"
+          >Samaritans</a></p>
+    
+    <p><a href="https://www.helpguide.org/find-help"
+          >Help Guide for English-Speaking Nations</a></p>
+
+    
+    <p style="margin-top: 50px">For any further questions or issues, please contact Dr. Anna Bevan:         <a href="mailto:anna.bevan@mrc-cbu.cam.ac.uk"
+          >anna.bevan@mrc-cbu.cam.ac.uk</a
+        >.</p>
+    <p style="margin-top: 30px">If you have a complaint about this study
+    please contact the Principal Investigator listed at the end of this
+    information sheet in the first instance. If you are not happy with the
+    response, please contact the Director of the Cognition and Brain
+    Sciences Unit (<a href="mailto:director@mrc-cbu.cam.ac.uk"
+      >director@mrc-cbu.cam.ac.uk</a>). Further steps can be taken through the University of Cambridge if
+    necessary.
+    </p>
+    <p style="margin-top: 30px">
+        Thank you for taking part in this study. Our research
+        depends entirely on the goodwill of potential volunteers such as you.
+
+
+      <strong> Further information and contact details:</strong>
+      <p style="margin-bottom: 5px">Dr. Anna Bevan</p>
+      <p style="margin-bottom: 5px; margin-top: 5px">
+        MRC Cognition & Brain Sciences Unit
+      </p>
+      <p style="margin-bottom: 5px; margin-top: 5px">
+        15 Chaucer Road, Cambridge. CB2 7EF
+      </p>
+      <p style="margin-bottom: 5px; margin-top: 5px">Tel: 01223 767702</p>
+      <p style="margin-top: 5px">
+        Email:
+        <a href="mailto:anna.bevan@mrc-cbu.cam.ac.uk"
+          >anna.bevan@mrc-cbu.cam.ac.uk</a
+        >
+      </p>
+
+        <button id="button-debrief" style="display: block; margin: 50px auto">
+          Finish Experiment
+        </button>
+
+  </div>
+
+    <div class="end"></div>
+  </body>
+  <script src="questionnaires.js"></script>
+</html>
