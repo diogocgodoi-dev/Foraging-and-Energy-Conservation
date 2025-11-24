@@ -229,23 +229,31 @@ if (!window.gameInitialized) {
     }
 
     let csv = {
-      position: [`Trial ${repetitionCount}`],
-      movement: [null],
-      presentEnergy: [null],
-      changeEnergy: [null],
-      timeTaken: [null],
-      currentCell: [null],
-      alphaTrees: [null],
-      betaTrees: [null],
-      alphaCrag: [null],
-      betaCrag: [null],
-      alphaWater: [null],
-      betaWater: [null],
-      treesVisited: [null],
-      cragVisited: [null],
-      waterVisited: [null],
-      totalAlpha: [null],
-      totalBeta: [null],
+      position: [],
+      movement: [],
+      presentEnergy: [],
+      changeEnergy: [],
+      timeTaken: [],
+      currentCell: [],
+      alphaTrees: [],
+      betaTrees: [],
+      alphaCrag: [],
+      betaCrag: [],
+      alphaWater: [],
+      betaWater: [],
+      treesVisited: [],
+      cragVisited: [],
+      waterVisited: [],
+      totalAlpha: [],
+      totalBeta: [],
+    };
+
+    let environmentCsv = {
+      position: [],
+      y: [],
+      landmark: [],
+      distanceFromStart: [],
+      meanObjectDispersion: [],
     };
 
     let summaryCsv = {
@@ -310,6 +318,14 @@ if (!window.gameInitialized) {
 
     // Capture trial starting energy at the beginning of trial
     let trialStartingEnergy;
+
+    let objectDistances;
+
+    let objectProximities;
+
+    let objectPositions;
+
+    let objectLandmark;
 
     //
     //
@@ -439,6 +455,44 @@ if (!window.gameInitialized) {
               objectIndex[transposedIndex] = betaData[originalIndex];
             }
           }
+
+          objectPositions = objectIndex
+            .map((v, i) => (v > 0 ? i : 0))
+            .filter((i) => i !== 0);
+
+          objectLandmark = objectIndex.filter((i) => i !== 0);
+
+          let distanceToForager = function (i) {
+            let x = i % gridWidth;
+            let y = Math.floor(i / gridWidth);
+            return Math.abs(gridWidth / 2 - x) + Math.abs(gridHeight - 1 - y);
+          };
+
+          let coordinates = function (i) {
+            let x = i % gridWidth;
+            let y = Math.floor(i / gridWidth);
+            return [x, y];
+          };
+
+          let objectCoordinates = objectPositions.map(coordinates);
+
+          let distanceToOthers = function (index) {
+            const [myX, myY] = objectCoordinates[index];
+
+            let sum = 0;
+            for (let t = 0; t < objectCoordinates.length; t++) {
+              const [x, y] = objectCoordinates[t];
+              sum += Math.abs(myX - x) + Math.abs(myY - y);
+            }
+
+            return sum / objectCoordinates.length;
+          };
+
+          objectDistances = objectPositions.map(distanceToForager);
+
+          objectProximities = objectCoordinates.map((_, idx) =>
+            distanceToOthers(idx, objectCoordinates)
+          );
 
           // Highlight cells based on transposed objectIndex
           //   objectIndex.forEach((val, idx) => {
@@ -693,24 +747,21 @@ if (!window.gameInitialized) {
       csv.totalBeta.push(betaTrees + betaCrag + betaWater);
 
       // Add a separator after the trial ends
-      if (endOfTrial && repetitionCount < 3) {
-        csv.position.push(`Trial ${repetitionCount + 1}`);
-        csv.movement.push(null);
-        csv.presentEnergy.push(null);
-        csv.changeEnergy.push(null);
-        csv.timeTaken.push(null);
-        csv.currentCell.push(null);
-        csv.alphaTrees.push(null);
-        csv.betaTrees.push(null);
-        csv.alphaCrag.push(null);
-        csv.betaCrag.push(null);
-        csv.alphaWater.push(null);
-        csv.betaWater.push(null);
-        csv.treesVisited.push(null);
-        csv.cragVisited.push(null);
-        csv.waterVisited.push(null);
-        csv.totalAlpha.push(null);
-        csv.totalBeta.push(null);
+      if (endOfTrial) {
+        // Update Environment CSV
+
+        let objectsVisited = objectPositions.map((square) =>
+          previousPositions.includes(square) ? 1 : 0
+        );
+
+        environmentCsv.position.push(
+          `Trial ${currentTrial}; Environment ${currentBackground}`,
+          ...objectPositions
+        ),
+          environmentCsv.y.push(null, ...objectsVisited),
+          environmentCsv.landmark.push(null, ...objectLandmark),
+          environmentCsv.distanceFromStart.push(null, ...objectDistances),
+          environmentCsv.meanObjectDispersion.push(null, ...objectProximities);
       }
     };
 
@@ -821,16 +872,26 @@ if (!window.gameInitialized) {
     // Start Rest
 
     let startResting = function () {
-      document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
-      document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
-      document.querySelector("#resting-modal").classList.remove("hidden");
+      let energyGuess = document.getElementById("energy-guess")?.value;
 
-      decision = "Rest";
+      if (energyGuess) {
+        document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
+        document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
+        document.querySelector("#resting-modal").classList.remove("hidden");
 
-      restForager(restTime, () => {
-        document.querySelector("#resting-modal").classList.add("hidden");
-        endTrial();
-      });
+        decision = "Rest";
+
+        restForager(restTime, () => {
+          document.querySelector("#resting-modal").classList.add("hidden");
+          endTrial();
+        });
+
+        document.addEventListener("keydown", moveForager); // Actually move the forager
+      } else {
+        alert(
+          "Please Indicate how many points you think are available in this environment."
+        );
+      }
     };
 
     let endTrial = function () {
@@ -879,6 +940,13 @@ if (!window.gameInitialized) {
         const blob = new Blob([csvString], { type: "text/csv" });
         jatos.uploadResultFile(blob, fileName);
 
+        const environmentCsvString = convertToCSV(environmentCsv);
+        const environmentFileName = `${prolificID}_env_block${conditionNumber}.csv`;
+        const environmentBlob = new Blob([environmentCsvString], {
+          type: "text/csv",
+        });
+        jatos.uploadResultFile(environmentBlob, environmentFileName);
+
         const summaryCsvString = convertToCSV(summaryCsv);
         const summaryFileName = `${prolificID}_summary_data.csv`;
         const summaryBlob = new Blob([summaryCsvString], { type: "text/csv" });
@@ -887,6 +955,10 @@ if (!window.gameInitialized) {
         // Reset CSV for next condition
         for (let key in csv) {
           csv[key] = [];
+        }
+
+        for (let key in environmentCsv) {
+          environmentCsv[key] = [];
         }
       } else {
         nextTrial();
@@ -922,6 +994,26 @@ if (!window.gameInitialized) {
       currentBackground = backgroundOrder[trialNumber - 1];
 
       lastMoveTime = performance.now(); // Define Starting Time
+
+      csv.position.push(
+        `Trial ${currentTrial} | Environment ${currentBackground}`
+      );
+      csv.movement.push(null);
+      csv.presentEnergy.push(null);
+      csv.changeEnergy.push(null);
+      csv.timeTaken.push(null);
+      csv.currentCell.push(null);
+      csv.alphaTrees.push(null);
+      csv.betaTrees.push(null);
+      csv.alphaCrag.push(null);
+      csv.betaCrag.push(null);
+      csv.alphaWater.push(null);
+      csv.betaWater.push(null);
+      csv.treesVisited.push(null);
+      csv.cragVisited.push(null);
+      csv.waterVisited.push(null);
+      csv.totalAlpha.push(null);
+      csv.totalBeta.push(null);
 
       updateCsv("Start", foragerIndex); // Define Starting move in CSV File
 
