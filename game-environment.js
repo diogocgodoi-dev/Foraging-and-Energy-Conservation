@@ -7,7 +7,9 @@ if (!window.gameInitialized) {
 
     // Variables
 
-    const prolificID = jatos.urlQueryParameters.PROLIFIC_PID || "unknown";
+    const prolificID = jatos.workerId || "unknown";
+
+    console.log(prolificID);
 
     const conditionOrders = {
       // Set Condition Orders
@@ -378,7 +380,11 @@ if (!window.gameInitialized) {
     }
 
     function randomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min)) + min;
+      const array = new Uint32Array(1);
+      self.crypto.getRandomValues(array);
+
+      // Same range logic as your original function: [min, max)
+      return min + (array[0] % (max - min));
     }
 
     // Create environment

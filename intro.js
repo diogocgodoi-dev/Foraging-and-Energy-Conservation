@@ -1,5 +1,5 @@
 jatos.onLoad(() => {
-  const prolificID = jatos.urlQueryParameters.PROLIFIC_PID || "unknown";
+  const prolificID = jatos.workerId || "unknown";
 
   const buttonPIS = document.querySelector("#button-PIS");
   const pis = document.getElementById("PIS");

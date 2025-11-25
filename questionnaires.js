@@ -1,7 +1,7 @@
 jatos.onLoad(() => {
   jatos.addAbortButton();
 
-  const prolificID = jatos.urlQueryParameters.PROLIFIC_PID || "unknown";
+  const prolificID = jatos.workerId || "unknown";
 
   // ------------------ Pages ------------------
   const pages = [
