@@ -118,8 +118,8 @@ if (!window.gameInitialized) {
     const gridWidth = 60;
     const gridHeight = 40;
 
-    grid.style.width = "1220px";
-    grid.style.height = "805px";
+    grid.style.width = "610px";
+    grid.style.height = "403px";
 
     // Convert the string values like "1205px" to numbers
     const gridPixelWidth = parseInt(grid.style.width); // 1205
@@ -411,8 +411,8 @@ if (!window.gameInitialized) {
       img.src = `img/Environments/${currentBackground}/${season}.png`;
 
       img.onload = () => {
-        const imgWidth = img.width / 4.5;
-        const imgHeight = img.height / 4.5;
+        const imgWidth = img.width / 6.5; // Change this in order to alter the size of the grid
+        const imgHeight = img.height / 6.5; // Change this in order to alter the size of the grid
 
         // Set grid size to match image
         grid.style.width = `${imgWidth}px`;
@@ -501,24 +501,24 @@ if (!window.gameInitialized) {
           );
 
           // Highlight cells based on transposed objectIndex
-          //   objectIndex.forEach((val, idx) => {
-          //     if (val !== 0) {
-          //       cells[idx].classList.add("reward");
-          //       cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-          //     }
-          //   });
+            objectIndex.forEach((val, idx) => {
+              if (val !== 0) {
+                cells[idx].classList.add("reward");
+                cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+              }
+            });
 
           //   objectIndex.forEach((val, idx) => {
-          //     if (val !== 0) {
-          //       cells[idx].classList.add("reward");
-          //       cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
-          //     }
-          //   });
+              if (val !== 0) {
+                cells[idx].classList.add("reward");
+                cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
+              }
+            
 
           //   // Add rewardMapping
-          //   for (let i = 0; i < rewardIndex.length; i++) {
-          //     cells[rewardIndex[i]].textContent = "⏺";
-          //   }
+            for (let i = 0; i < rewardIndex.length; i++) {
+              cells[rewardIndex[i]].textContent = "⏺";
+            }
         });
 
         // Place forager
@@ -579,7 +579,7 @@ if (!window.gameInitialized) {
 
       if (energy > 500) {
         // Limit bar size to 100
-        energyBar.style.width = "1250px";
+        energyBar.style.width = "833px";
       }
     }
 
@@ -853,13 +853,13 @@ if (!window.gameInitialized) {
       let energyGuess = document.getElementById("energy-guess")?.value;
 
       if (energyGuess) {
-        currentCondition = "Foraging";
-        document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
-        document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
+      currentCondition = "Foraging";
+      document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
+      document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
 
-        decision = "Forage";
+      decision = "Forage";
 
-        document.addEventListener("keydown", moveForager); // Actually move the forager
+      document.addEventListener("keydown", moveForager); // Actually move the forager
       } else {
         alert(
           "Please Indicate how many points you think are available in this environment."
@@ -881,16 +881,16 @@ if (!window.gameInitialized) {
       let energyGuess = document.getElementById("energy-guess")?.value;
 
       if (energyGuess) {
-        document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
-        document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
+      document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
+      document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
         document.querySelector("#resting-modal").classList.remove("hidden");
 
-        decision = "Rest";
+      decision = "Rest";
 
-        restForager(restTime, () => {
+      restForager(restTime, () => {
           document.querySelector("#resting-modal").classList.add("hidden");
-          endTrial();
-        });
+        endTrial();
+      });
 
         document.addEventListener("keydown", moveForager); // Actually move the forager
       } else {
