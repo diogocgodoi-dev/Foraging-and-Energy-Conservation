@@ -3,7 +3,9 @@
 }
 
 body {
-  margin: 1% 8% 5%;
+  margin: 1% 0% 1%;
+  transform: scale(0.90);  /* shrink to 85% */
+  transform-origin: top; /* keeps layout aligned */
 }
 
 p {
@@ -106,45 +108,7 @@ label {
   display: inline-block; /* keeps it inline but allows margin */
   line-height: 1.7; /* optional: controls internal line spacing */
 }
-/* QUESTION ROW: text on left, radio columns on right */
-.bai-item {
-  display: flex;
-  align-items: center; /* vertically centre the whole row */
-  gap: 50px; /* space between question and controls */
-  margin-bottom: 20px;
-  margin-right: 150px;
-  margin-top: 50px;
-}
 
-/* question text takes available space */
-.bai-item p {
-  flex: 1;
-  margin: 0; /* remove extra margins that shift layout */
-  text-align: left;
-}
-
-/* container holding the N radio columns */
-.bai-buttons {
-  display: flex;
-  gap: 90px; /* space between radio columns — tune this */
-  align-items: center; /* vertically align labels inside */
-  justify-content: flex-end;
-  min-width: 360px; /* keep a stable width so columns align */
-  box-sizing: border-box;
-  margin: 0; /* remove large right margins that broke layout */
-}
-
-/* each option (radio + label text) — stacked and centred */
-.bai-buttons label {
-  display: flex;
-  flex-direction: column; /* radio above label text */
-  align-items: center; /* centre horizontally */
-  justify-content: center; /* centre vertically */
-  width: 100px; /* consistent column width so everything lines up */
-  text-align: center;
-  gap: 6px; /* small gap between radio and its caption */
-  margin: 0;
-}
 
 #demographic-info input[type="text"] {
   font-size: 14pt;
@@ -158,58 +122,137 @@ label input[type="radio"] {
   cursor: pointer;
 }
 
-#BAI-Page label input[type="radio"] {
-  transform: scale(1.7);
-  margin: 5px;
-  cursor: pointer;
-}
 
-#RRS-10-Page label input[type="radio"] {
-  transform: scale(1.7);
-  margin: 5px;
-  cursor: pointer;
-}
-
-/* header row (the captions above the radio columns) */
-.bai-header,
+/* Headers row (rating labels) */
 .bai-headers {
-  display: flex;
-  justify-content: flex-end;
-  gap: 90px;
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 0.75fr);
   align-items: center;
-  margin-top: 30px;
+  gap: 0px;
+  margin-top: 75px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
 }
 
-/* Likert headers */
-.bai-header .bai-buttons label,
-.bai-headers label {
-  /* ensure header labels use same width */
-  width: 100px;
+/* Each question row */
+.bai-item {
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 0.75fr);
+  align-items: center;
+  gap: 0px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Question text */
+.bai-item p {
+  margin: 0;
+  margin-right: 30px;
+}
+
+/* Radio button container uses grid slots directly */
+.bai-buttons {
+  display: contents;
+}
+
+/* Center radio buttons inside their cells */
+.bai-buttons label {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slightly larger radio buttons for clarity */
+.bai-buttons input[type="radio"] {
+  transform: scale(1.7);
+  cursor: pointer;
+}
+
+#RRS-10-Page {
+  display:block;
+}
+
+/* Headers row (rating labels) */
+.rrs-headers {
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 0.75fr);
+  align-items: center;
+  gap: 0px;
+  margin-top: 75px;
+  margin-bottom: 20px;
   text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Each question row */
+.rrs-item {
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 0.75fr);
+  align-items: center;
+  gap: 0px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Question text */
+
+
+.rrs-item p {
+  margin: 0;
+  margin-right: 30px;
+}
+
+/* Radio button container uses grid slots directly */
+.rrs-buttons {
+  display: contents;
+}
+
+/* Center radio buttons inside their cells */
+.rrs-buttons label {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slightly larger radio buttons for clarity */
+.rrs-buttons input[type="radio"] {
+  transform: scale(1.7);
+  cursor: pointer;
 }
 
 /* ================
    IUS-12 Scale Layout
    ================ */
 
+#IUS-12-Page {
+  display:block;
+}
+
+
 /* Headers row (rating labels) */
 .ius-headers {
-  display: flex;
-  grid-template-columns: 2fr repeat(5, 1fr);
-  text-align: center;
+  display: grid;
+  grid-template-columns: 2.5fr repeat(5, 0.75fr);
   align-items: center;
-  gap: 100px;
-  margin: 30px 0px;
-  padding-bottom: 8px;
-  font-size: 1rem;
-  justify-content: right;
-  margin-right: 50px;
+  gap: 0px;
+  margin-top: 75px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Each question row */
 .ius-item {
   display: grid;
-  grid-template-columns: 2fr repeat(5, 1fr);
+  grid-template-columns: 2.5fr repeat(5, 0.75fr);
   align-items: center;
   gap: 0px;
   margin-top: 50px;
@@ -221,7 +264,7 @@ label input[type="radio"] {
 /* Question text */
 .ius-item p {
   margin: 0;
-  padding-right: 15px;
+  margin-right: 30px
 }
 
 /* Radio button container uses grid slots directly */
@@ -242,7 +285,3 @@ label input[type="radio"] {
   cursor: pointer;
 }
 
-/* Adjust label text above */
-.ius-headers label {
-  width: 150px;
-}

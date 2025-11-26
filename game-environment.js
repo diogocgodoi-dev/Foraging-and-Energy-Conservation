@@ -411,8 +411,8 @@ if (!window.gameInitialized) {
       img.src = `img/Environments/${currentBackground}/${season}.png`;
 
       img.onload = () => {
-        const imgWidth = img.width / 6.5; // Change this in order to alter the size of the grid
-        const imgHeight = img.height / 6.5; // Change this in order to alter the size of the grid
+        const imgWidth = img.width / 4.5; // Change this in order to alter the size of the grid
+        const imgHeight = img.height / 4.5; // Change this in order to alter the size of the grid
 
         // Set grid size to match image
         grid.style.width = `${imgWidth}px`;
@@ -500,26 +500,26 @@ if (!window.gameInitialized) {
             distanceToOthers(idx, objectCoordinates)
           );
 
-          // Highlight cells based on transposed objectIndex
-            objectIndex.forEach((val, idx) => {
-              if (val !== 0) {
-                cells[idx].classList.add("reward");
-                cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-              }
-            });
+        //   // Highlight cells based on transposed objectIndex
+        //     objectIndex.forEach((val, idx) => {
+        //       if (val !== 0) {
+        //         cells[idx].classList.add("reward");
+        //         cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+        //       }
+        //     });
 
-          //   objectIndex.forEach((val, idx) => {
-              if (val !== 0) {
-                cells[idx].classList.add("reward");
-                cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
-              }
+        //   //   objectIndex.forEach((val, idx) => {
+        //       if (val !== 0) {
+        //         cells[idx].classList.add("reward");
+        //         cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
+        //       }
             
 
-          //   // Add rewardMapping
-            for (let i = 0; i < rewardIndex.length; i++) {
-              cells[rewardIndex[i]].textContent = "⏺";
-            }
-        });
+        //   // Add rewardMapping
+        //     for (let i = 0; i < rewardIndex.length; i++) {
+        //       cells[rewardIndex[i]].textContent = "⏺";
+        //     }
+        // });
 
         // Place forager
         cells[foragerIndex].classList.add("forager");
@@ -530,7 +530,7 @@ if (!window.gameInitialized) {
 
         // Set and log environment setup
         environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
-      };
+      })};
     }
 
     // Play The Step Sound
@@ -579,7 +579,7 @@ if (!window.gameInitialized) {
 
       if (energy > 500) {
         // Limit bar size to 100
-        energyBar.style.width = "833px";
+        energyBar.style.width = "1250px";
       }
     }
 
