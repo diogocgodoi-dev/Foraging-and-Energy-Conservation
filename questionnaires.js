@@ -83,7 +83,7 @@ jatos.onLoad(() => {
   // ------------------ Page Navigation ------------------
   Object.keys(nextButtons).forEach((pageId) => {
     nextButtons[pageId].addEventListener("click", () => {
-      // if (!validateForm(pageId)) return;
+      if (!validateForm(pageId)) return;
       const responses = collectResponses(pageId);
       Object.assign(allResponses, responses);
       currentPage++;
