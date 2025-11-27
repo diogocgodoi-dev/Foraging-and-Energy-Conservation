@@ -500,37 +500,37 @@ if (!window.gameInitialized) {
             distanceToOthers(idx, objectCoordinates)
           );
 
-        //   // Highlight cells based on transposed objectIndex
-        //     objectIndex.forEach((val, idx) => {
-        //       if (val !== 0) {
-        //         cells[idx].classList.add("reward");
-        //         cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-        //       }
-        //     });
+          //   // Highlight cells based on transposed objectIndex
+          //     objectIndex.forEach((val, idx) => {
+          //       if (val !== 0) {
+          //         cells[idx].classList.add("reward");
+          //         cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+          //       }
+          //     });
 
-        //   //   objectIndex.forEach((val, idx) => {
-        //       if (val !== 0) {
-        //         cells[idx].classList.add("reward");
-        //         cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
-        //       }
-            
+          //   //   objectIndex.forEach((val, idx) => {
+          //       if (val !== 0) {
+          //         cells[idx].classList.add("reward");
+          //         cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
+          //       }
 
-        //   // Add rewardMapping
-        //     for (let i = 0; i < rewardIndex.length; i++) {
-        //       cells[rewardIndex[i]].textContent = "⏺";
-        //     }
-        // });
+          //   // Add rewardMapping
+          //     for (let i = 0; i < rewardIndex.length; i++) {
+          //       cells[rewardIndex[i]].textContent = "⏺";
+          //     }
+          // });
 
-        // Place forager
-        cells[foragerIndex].classList.add("forager");
-        cells[foragerIndex].textContent = "↑";
+          // Place forager
+          cells[foragerIndex].classList.add("forager");
+          cells[foragerIndex].textContent = "↑";
 
-        // Show grid
-        grid.classList.remove("hidden");
+          // Show grid
+          grid.classList.remove("hidden");
 
-        // Set and log environment setup
-        environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
-      })};
+          // Set and log environment setup
+          environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
+        });
+      };
     }
 
     // Play The Step Sound
@@ -853,13 +853,13 @@ if (!window.gameInitialized) {
       let energyGuess = document.getElementById("energy-guess")?.value;
 
       if (energyGuess) {
-      currentCondition = "Foraging";
-      document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
-      document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
+        currentCondition = "Foraging";
+        document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
+        document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
 
-      decision = "Forage";
+        decision = "Forage";
 
-      document.addEventListener("keydown", moveForager); // Actually move the forager
+        document.addEventListener("keydown", moveForager); // Actually move the forager
       } else {
         alert(
           "Please Indicate how many points you think are available in this environment."
@@ -881,16 +881,16 @@ if (!window.gameInitialized) {
       let energyGuess = document.getElementById("energy-guess")?.value;
 
       if (energyGuess) {
-      document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
-      document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
+        document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
+        document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
         document.querySelector("#resting-modal").classList.remove("hidden");
 
-      decision = "Rest";
+        decision = "Rest";
 
-      restForager(restTime, () => {
+        restForager(restTime, () => {
           document.querySelector("#resting-modal").classList.add("hidden");
-        endTrial();
-      });
+          endTrial();
+        });
 
         document.addEventListener("keydown", moveForager); // Actually move the forager
       } else {
@@ -1030,8 +1030,6 @@ if (!window.gameInitialized) {
       // Get the condition for this trial
       trialCondition = randomisedOrder[conditionIndex];
 
-      document.querySelector("#modal1").classList.remove("hidden"); // Show Modal
-
       // Create Grid
 
       createEnvironment(
@@ -1040,8 +1038,13 @@ if (!window.gameInitialized) {
         trialCondition.reward,
         trialCondition.rule
       );
-      energyBar.classList.remove("hidden"); // Show Energy Bar
-      document.querySelector(".energy-label").classList.remove("hidden"); // Show Energy label}
+
+      setTimeout(() => {
+        // Adds delay in case the environment takes long to load
+        energyBar.classList.remove("hidden");
+        document.querySelector(".energy-label").classList.remove("hidden");
+        document.querySelector("#modal1").classList.remove("hidden");
+      }, 100);
     };
 
     //
