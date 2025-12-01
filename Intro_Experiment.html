@@ -591,11 +591,13 @@
       />
       <p>
         Scattered throughout the map, there are hidden
-        <b>"energy points"</b> that provide you energy when you touch them. Every time a new environment is generated, you will be asked to do a couple of things: First, you will be asked to rate your mood and energy at the moment. Then, you will be shown the environment for 2 seconds, and then asked to estimate how many energy points are available in the environment, and how certain you are in your prediction. Then, you will be given a choice to <b>"Forage"</b> or to <b>"Rest"</b>.</p>
+        <b>"energy points"</b> that provide you energy when you touch them. Every time a new environment is generated, you will be asked to do a couple of things: First, you will be asked to rate your mood and energy at the moment. Then, you will be shown the environment for 3 seconds, and then asked to estimate how many energy points are available in the environment, and how certain you are in your prediction. Then, you will be given a choice to <b>"Forage"</b> or to <b>"Rest"</b>.</p>
 
         <p style="margin-top: 50px">If you decide to forage, you will be able to move through the map using the arrow keys, and attain energy points. However, every time you take a step, you lose one energy point. As you spend and gain more energy points, a counter at the bottom of your screen will indicate how many points you have. You can explore for as long or as little as you like, as long as you have energy points available. Once you are done with exploring, you can press the <b>"F"</b> key to go ahead to the next environment.</p>
 
         <p style="margin: 50px 0px">If you choose to rest, you will be unable to move on the map for some time, and the next environment will be generated once your waiting time is done. However, during this time, you will gain a consistent amount of energy points.</p>
+
+        <p style = "margin:50px 0px">"If you run out of energy, you will have to rest to get enough energy to be able to forage again. You do not ‘loose’ if you run out of energy, you will just need to rest before continuing with the trials. <b>Your aim is to finish with as many energy points as possible.</b></p>
 
         <p style = "margin: 50px 0px">There are 18 environments in total, and breaks are allocated every 3 environments in case you need them. When you are done, you will be asked to complete some questionnaires. Once you feel like you understand the instructions, please click the button to start the task!</p>
 
@@ -603,8 +605,82 @@
       
          <p style = "margin: 50px 0px">Once you feel like you understand the instructions, please click the button to start the task!</p>
 
-      <button id="button-start-task" style="margin:50px auto; display: block">Start Task</button>
+      <button id="button-start-task" style="margin:50px auto; display: block">Continue</button>
     </div>
+
+    <div id="instructions-quiz" style= "display: none">
+      <h2 style="text-align: center">Instructions Quiz</h2>
+
+
+        <div>
+        <h3>
+          What happens when you choose to "Rest"?
+        </h3>
+        <label>
+          <input type="radio" name="Instruction-quiz-1" value="0" style="margin-bottom: 20px" required />
+          The experiment finishes and you get to take a break.
+        </label>
+        <br />
+        <label>
+          <input
+            type="radio"
+            name="Instruction-quiz-1"
+            value="0"
+            style="margin-bottom: 20px"
+          />
+          You cannot move in the environment and you don't gain any energy points.
+        </label>
+        <br />
+
+                <label>
+          <input
+            type="radio"
+            name="Instruction-quiz-1"
+            value="1"
+            style="margin-bottom: 20px"
+          />
+          You cannot move in the environment and you gain a pre-specified amount of energy points.
+        </label>
+        <br />
+
+
+      </div>
+
+              <div>
+        <h3>
+          What is the main objective of the game?
+        </h3>
+        <label>
+          <input type="radio" name="Instruction-quiz-2" value="1" style="margin-bottom: 20px" required />
+          To finish with as many energy points as possible.
+        </label>
+        <br />
+        <label>
+          <input
+            type="radio"
+            name="Instruction-quiz-2"
+            value="0"
+            style="margin-bottom: 20px"
+          />
+          To explore the environment as much as possible.
+        </label>
+        <br />
+
+                <label>
+          <input
+            type="radio"
+            name="Instruction-quiz-2"
+            value="0"
+            style="margin-bottom: 20px"
+          />
+          To never reach "0" energy points.
+        </label>        
+        <br />
+
+      <button id="button-instructions-quiz" style="margin:50px auto; display: block">Start Task</button>
+
+      </div>
+
   </body>
   <script src="intro.js"></script>
 </html>

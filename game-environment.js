@@ -681,9 +681,9 @@ if (!window.gameInitialized) {
             energyIndex[square] === 0 &&
             !previousPositions.includes(square)
           ) {
-            alphaTrees++;
-          } else if (!previousPositions.includes(square)) {
             betaTrees++;
+          } else if (!previousPositions.includes(square)) {
+            alphaTrees++;
           }
           break;
         case "Water":
@@ -691,9 +691,9 @@ if (!window.gameInitialized) {
             energyIndex[square] === 0 &&
             !previousPositions.includes(square)
           ) {
-            alphaWater++;
-          } else if (!previousPositions.includes(square)) {
             betaWater++;
+          } else if (!previousPositions.includes(square)) {
+            alphaWater++;
           }
           break;
         case "Crag":
@@ -701,9 +701,9 @@ if (!window.gameInitialized) {
             energyIndex[square] === 0 &&
             !previousPositions.includes(square)
           ) {
-            alphaCrag++;
-          } else if (!previousPositions.includes(square)) {
             betaCrag++;
+          } else if (!previousPositions.includes(square)) {
+            alphaCrag++;
           }
           break;
       }
@@ -1113,7 +1113,7 @@ if (!window.gameInitialized) {
       setTimeout(() => {
         document.getElementById("modal2").classList.remove("hidden");
         document.querySelector(".overlay").classList.remove("hidden");
-      }, 2000); // Show Overlay
+      }, 3000); // Show Overlay
     });
   });
 }

@@ -12,6 +12,7 @@ jatos.onLoad(() => {
   );
   const medicationsBox = document.getElementById("medications-box");
   const instructionsPage = document.getElementById("instructions-page");
+  const instructionsQuiz = document.getElementById("instructions-quiz");
   const startButton = document.getElementById("button-start-task");
 
   // Hide everything else until instructions are read
@@ -113,6 +114,34 @@ jatos.onLoad(() => {
 
       console.log("Collected demographics:", demographics);
 
+      // Check the instruction quiz
+
+      document
+        .getElementById("button-instructions-quiz")
+        .addEventListener("click", () => {
+          const instruction1 = Number(
+            document.querySelector('input[name="Instruction-quiz-1"]:checked')
+              ?.value
+          );
+
+          const instruction2 = Number(
+            document.querySelector('input[name="Instruction-quiz-2"]:checked')
+              ?.value
+          );
+
+          console.log(instruction1 + instruction2);
+          if (instruction1 + instruction2 == 2) {
+            jatos.startNextComponent();
+          } else {
+            alert(
+              "You have answered these questions wrong, please re-read the instructions page and answer them correctly to continue."
+            );
+            instructionsQuiz.style.display = "none";
+            instructionsPage.style.display = "block";
+            window.scrollTo(0, 0);
+          }
+        });
+
       // ✅ Save to JATOS before proceeding
 
       function convertToCSV(obj) {
@@ -147,6 +176,8 @@ jatos.onLoad(() => {
 
   // When participant clicks "Start Task", move to next section/component
   startButton.addEventListener("click", () => {
-    jatos.startNextComponent();
+    instructionsPage.style.display = "none";
+    instructionsQuiz.style.display = "block";
+    window.scrollTo(0, 0);
   });
 });
