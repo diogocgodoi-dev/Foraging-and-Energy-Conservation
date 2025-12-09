@@ -17,6 +17,14 @@ jatos.onLoad(() => {
 
   // Hide everything else until instructions are read
   const allSections = document.querySelectorAll(".page-section");
+
+  function resetInstructionQuiz() {
+    const radios = document.querySelectorAll(
+      'input[name^="Instruction-quiz-"]'
+    );
+    radios.forEach((r) => (r.checked = false));
+  }
+
   allSections.forEach((sec) => (sec.style.display = "none"));
 
   // 🟩 Show Consent Form when PIS button clicked
@@ -129,8 +137,12 @@ jatos.onLoad(() => {
               ?.value
           );
 
-          console.log(instruction1 + instruction2);
-          if (instruction1 + instruction2 == 2) {
+          const instruction3 = Number(
+            document.querySelector('input[name="Instruction-quiz-3"]:checked')
+              ?.value
+          );
+
+          if (instruction1 + instruction2 + instruction3 == 3) {
             jatos.startNextComponent();
           } else {
             alert(
@@ -179,5 +191,7 @@ jatos.onLoad(() => {
     instructionsPage.style.display = "none";
     instructionsQuiz.style.display = "block";
     window.scrollTo(0, 0);
+
+    resetInstructionQuiz();
   });
 });
