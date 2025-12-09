@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Foraging</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src="jatos.js"></script>
+
+</script>
+  </head>
+      <body>
+
+
+  <div class = "modal hidden" id = "resting-modal" style = "align-items: center; margin: auto; width: 15%">
+  <p style = "font-size: 2.5rem; margin: 0px auto 70px auto; text-align:center">
+    Resting...
+  </p>
+  <div class = "loader" style = "margin: 50px auto; align-items:center"></div>
+</div>
+
+    <div class="modal" id = "modal1">
+<div class="slider-container" style = "margin-top: 20px">
+  <p style = "font-size: 2rem">What is your <b>mood</b> at the moment?</p>
+  <div class="slider-wrapper">
+       <span class="slider-label-left">-10 (Negative)</span>
+
+    <input type="range" id="mood-slider" min="-10" max="10" value="0" />
+      <span class="slider-label-right">10 
+        (Positive)</span>
+    </div>
+      <div style = "margin-bottom: 10px"> 
+        <p style = "font-size: 1.7rem">Mood Value: <span id="mood-value">0</p></span></div>
+
+  </div>
+
+<div style = "margin-top: 50px"class="slider-container">
+  <p style = "font-size: 2rem">What is your <b>energy</b> at the moment?</p>
+  <div class="slider-wrapper">
+       <span class="slider-label-left">-10 (Very Tired)</span>
+    <input type="range" id="energy-slider" min="-10" max="10" value="0" />
+          <span class="slider-label-right">10 (Very Energetic)</span>
+  </div>
+  <div><p style = "font-size: 1.7rem">Energy Value: <span id="energy-value">0</p></span></div>
+
+    <button id="submit-button" style="margin-top: 30px; padding: 10px 25px; font-size: 16px;">
+    Show Environment
+  </button>
+          </div>
+          </div>
+
+  <div class = "modal hidden" id = "modal2">
+      <p style="margin: 0%; text-align: center; font-size: 2rem">
+        How many energy points do you guess are available in this environment?
+      </p>
+      <input type="text" id="energy-guess" />
+
+<div class="slider-container">
+  <p style="text-align: center; margin-top: 50px; font-size: 2rem">How confident are you in this prediction?</p>
+  <div class="slider-wrapper">
+    <span class="slider-label-left">Not at all confident</span>
+    <input
+      type="range"
+      id="confidence-slider"
+      min="0"
+      max="100"
+      value="50"
+    />
+    <span class="slider-label-right">Very confident</span>
+  </div>
+</div>
+
+
+
+
+
+      <p style = "text-align: center; margin-top: 75px; font-size: 2rem"> What would you like to do this round?</p>
+
+      <div style = "margin-bottom: 3%"class = "button-container"> 
+        <button id = "forage-button" style="margin-top: 10px; padding: 10px 25px; font-size: 16px;">Forage</button>
+        <button id = "rest-button"  style="margin-top: 10px; padding: 10px 25px; font-size: 16px;">Rest</button>
+      </div>
+      </div>
+      </div>
+
+
+      <div class="overlay"></div>
+      <h1 style = "margin: 20px auto; text-align:center">Practice Session</h1>
+
+      <div id="grid-wrapper">
+      <div class = "instruction"><h2>Try to accumulate as many energy points as possible.</h2></div>
+      <div class="grid"></div>
+      <div class = "instruction"><h2>When you are done exploring, press "f" to advance to the next environment.</h2> </div>
+      </div>
+      <div class="energy-label">Energy Points: </div>
+      <div class="energy-bar"></div>
+    </div>
+    </div>
+    <script type = "module" src="game practice.js"></script>
+
+<div id="rating-screen" class = "hidden" >
+
+  <h1 style = "margin: 15%">You have reached the end of the block. Now would be a good time to take a short break if you need one.</h1>
+  
+  <!-- Continue Button -->
+  <button id="continue-button" style="margin-top: 20px; padding: 10px 25px; font-size: 16px;">
+    Continue
+  </button>
+
+</div>
+
+  </body>
+</html>

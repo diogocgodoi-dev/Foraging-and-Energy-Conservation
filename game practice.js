@@ -159,30 +159,7 @@ if (!window.gameInitialized) {
 
     let currentTrial = 1;
 
-    let backgroundDatabase = [
-      // "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      // "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      // "12",
-      // "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "21",
-      "23",
-    ]; // All available backgrounds
+    let backgroundDatabase = ["1", "2"]; // All available backgrounds
 
     const backgroundOrder = shuffleArray(backgroundDatabase); // Order of backgrounds
 
@@ -196,7 +173,7 @@ if (!window.gameInitialized) {
 
     let repetitionCount = 1; // Repetition count within condition
 
-    const repetitionsPerCondition = 3; // Run each condition 3 times
+    const repetitionsPerCondition = 1; // Run each condition 3 times
 
     let environmentSetup;
 
@@ -216,8 +193,8 @@ if (!window.gameInitialized) {
       rule: [],
     };
 
-    for (let block = 0; block < 6; block++) {
-      for (let i = 0; i < 3; i++) {
+    for (let block = 0; block < 2; block++) {
+      for (let i = 0; i < 1; i++) {
         randomisationValues.randomisedOrder.push(randomisedOrderNumber);
         randomisationValues.trial.push(block * 3 + i + 1);
         randomisationValues.block.push(block + 1);
@@ -454,11 +431,12 @@ if (!window.gameInitialized) {
     async function createEnvironment(trialNumber, season, reward, rule) {
       // Load CSV and compute energy/reward indices
       const data = await loadCSV(
-        `img/Environments/${currentBackground}/${rule}.csv`
+        // `img/Practice/${currentBackground}${rule}.csv`
+        `img/Practice/${currentBackground}/reward.csv`
       );
       energyIndex = data.flat().map(Number);
 
-      const totalEnergy = reward === "high" ? 500 : 150;
+      const totalEnergy = reward === "high" ? 1000 : 1000;
 
       rewardIndex = energyIndex
         .map((v, i) => (v > 0 ? i : 0))
@@ -471,7 +449,7 @@ if (!window.gameInitialized) {
 
       // Load background image dynamically
       const img = new Image();
-      img.src = `img/Environments/${currentBackground}/${season}.png`;
+      img.src = `img/Practice/${currentBackground}/${season}.png`;
 
       img.onload = () => {
         const imgWidth = img.width / 4.5; // Change this in order to alter the size of the grid
@@ -500,100 +478,100 @@ if (!window.gameInitialized) {
         cells = Array.from(document.querySelectorAll(".cell"));
 
         // Set background
-        grid.style.backgroundImage = `url("img/Environments/${currentBackground}/${season}.png")`;
+        grid.style.backgroundImage = `url("img/Practice/${currentBackground}/${season}.png")`;
         grid.style.backgroundSize = "cover";
         grid.style.backgroundPosition = "center";
         grid.style.backgroundRepeat = "no-repeat";
 
         // Add itemMapping
-        loadCSV(
-          `img/Environments/${currentBackground}/environment_data.csv`
-        ).then((data) => {
-          betaData = data.flat().map(Number);
+        loadCSV(`img/Practice/${currentBackground}/environment_data.csv`).then(
+          (data) => {
+            betaData = data.flat().map(Number);
 
-          // Transpose betaData from 40x60 (cols x rows) to 60x40 (rows x cols)
-          const rows = gridHeight; // 60
-          const cols = gridWidth; // 40
+            // Transpose betaData from 40x60 (cols x rows) to 60x40 (rows x cols)
+            const rows = gridHeight; // 60
+            const cols = gridWidth; // 40
 
-          objectIndex = new Array(betaData.length);
+            objectIndex = new Array(betaData.length);
 
-          for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-              const originalIndex = c * rows + r; // index in original 40x60
-              const transposedIndex = r * cols + c; // index in new 60x40
-              objectIndex[transposedIndex] = betaData[originalIndex];
+            for (let r = 0; r < rows; r++) {
+              for (let c = 0; c < cols; c++) {
+                const originalIndex = c * rows + r; // index in original 40x60
+                const transposedIndex = r * cols + c; // index in new 60x40
+                objectIndex[transposedIndex] = betaData[originalIndex];
+              }
             }
+
+            objectPositions = objectIndex
+              .map((v, i) => (v > 0 ? i : 0))
+              .filter((i) => i !== 0);
+
+            objectLandmark = objectIndex.filter((i) => i !== 0);
+
+            let distanceToForager = function (i) {
+              let x = i % gridWidth;
+              let y = Math.floor(i / gridWidth);
+              return Math.abs(gridWidth / 2 - x) + Math.abs(gridHeight - 1 - y);
+            };
+
+            let coordinates = function (i) {
+              let x = i % gridWidth;
+              let y = Math.floor(i / gridWidth);
+              return [x, y];
+            };
+
+            let objectCoordinates = objectPositions.map(coordinates);
+
+            let distanceToOthers = function (index) {
+              const [myX, myY] = objectCoordinates[index];
+
+              let sum = 0;
+              for (let t = 0; t < objectCoordinates.length; t++) {
+                const [x, y] = objectCoordinates[t];
+                sum += Math.abs(myX - x) + Math.abs(myY - y);
+              }
+
+              return sum / objectCoordinates.length;
+            };
+
+            objectDistances = objectPositions.map(distanceToForager);
+
+            objectProximities = objectCoordinates.map((_, idx) =>
+              distanceToOthers(idx, objectCoordinates)
+            );
+
+            // // Highlight cells based on transposed objectIndex
+            // objectIndex.forEach((val, idx) => {
+            //   if (val !== 0) {
+            //     cells[idx].classList.add("reward");
+            //     cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+            //   }
+            // });
+
+            // objectIndex.forEach((val, idx) => {
+            //   if (val !== 0) {
+            //     cells[idx].classList.add("reward");
+            //     cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
+            //   }
+
+            //   // Add rewardMapping
+            //   for (let i = 0; i < rewardIndex.length; i++) {
+            //     cells[rewardIndex[i]].textContent = "⏺";
+            //   }
+            // });
+
+            // Place forager
+            cells[foragerIndex].classList.add("forager");
+            cells[foragerIndex].textContent = "↑";
+
+            // Show grid
+            grid.classList.remove("hidden");
+            document.querySelector("#grid-wrapper").style.display = "flex";
+
+            // Set and log environment setup
+            environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
           }
-
-          objectPositions = objectIndex
-            .map((v, i) => (v > 0 ? i : 0))
-            .filter((i) => i !== 0);
-
-          objectLandmark = objectIndex.filter((i) => i !== 0);
-
-          let distanceToForager = function (i) {
-            let x = i % gridWidth;
-            let y = Math.floor(i / gridWidth);
-            return Math.abs(gridWidth / 2 - x) + Math.abs(gridHeight - 1 - y);
-          };
-
-          let coordinates = function (i) {
-            let x = i % gridWidth;
-            let y = Math.floor(i / gridWidth);
-            return [x, y];
-          };
-
-          let objectCoordinates = objectPositions.map(coordinates);
-
-          let distanceToOthers = function (index) {
-            const [myX, myY] = objectCoordinates[index];
-
-            let sum = 0;
-            for (let t = 0; t < objectCoordinates.length; t++) {
-              const [x, y] = objectCoordinates[t];
-              sum += Math.abs(myX - x) + Math.abs(myY - y);
-            }
-
-            return sum / objectCoordinates.length;
-          };
-
-          objectDistances = objectPositions.map(distanceToForager);
-
-          objectProximities = objectCoordinates.map((_, idx) =>
-            distanceToOthers(idx, objectCoordinates)
-          );
-
-          //   // Highlight cells based on transposed objectIndex
-          //     objectIndex.forEach((val, idx) => {
-          //       if (val !== 0) {
-          //         cells[idx].classList.add("reward");
-          //         cells[idx].style.backgroundColor = "rgba(255, 0, 0, 0.5)";
-          //       }
-          //     });
-
-          //   //   objectIndex.forEach((val, idx) => {
-          //       if (val !== 0) {
-          //         cells[idx].classList.add("reward");
-          //         cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
-          //       }
-
-          //   // Add rewardMapping
-          //     for (let i = 0; i < rewardIndex.length; i++) {
-          //       cells[rewardIndex[i]].textContent = "⏺";
-          //     }
-          // });
-
-          // Place forager
-          cells[foragerIndex].classList.add("forager");
-          cells[foragerIndex].textContent = "↑";
-
-          // Show grid
-          grid.classList.remove("hidden");
-          document.querySelector("#grid-wrapper").style.display = "flex";
-
-          // Set and log environment setup
-          environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
-        });
+        );
       };
     }
 
@@ -997,7 +975,8 @@ if (!window.gameInitialized) {
         // Checks if block is finished
         // Show the Break screen
         repetitionCount = 0; // Reset Repetition Count
-        showBreakScreen();
+        conditionIndex++;
+        nextTrial();
         movesAtTrialStart = 0;
         timeThisTrial = 0;
 
@@ -1009,19 +988,19 @@ if (!window.gameInitialized) {
         const fileName = `${prolificID}_block_${conditionNumber}.csv`;
 
         const blob = new Blob([csvString], { type: "text/csv" });
-        jatos.uploadResultFile(blob, fileName);
+        // jatos.uploadResultFile(blob, fileName);
 
         const environmentCsvString = convertToCSV(environmentCsv);
         const environmentFileName = `${prolificID}_env_block${conditionNumber}.csv`;
         const environmentBlob = new Blob([environmentCsvString], {
           type: "text/csv",
         });
-        jatos.uploadResultFile(environmentBlob, environmentFileName);
+        // jatos.uploadResultFile(environmentBlob, environmentFileName);
 
         const summaryCsvString = convertToCSV(summaryCsv);
         const summaryFileName = `${prolificID}_summary_data.csv`;
         const summaryBlob = new Blob([summaryCsvString], { type: "text/csv" });
-        jatos.uploadResultFile(summaryBlob, summaryFileName);
+        // jatos.uploadResultFile(summaryBlob, summaryFileName);
 
         // Reset CSV for next condition
         for (let key in csv) {
@@ -1039,13 +1018,13 @@ if (!window.gameInitialized) {
     const nextTrial = function () {
       repetitionCount++;
 
-      if (currentTrial >= 18) {
+      if (currentTrial >= 2) {
         // Completed Trial: Fill with JATOS Commands
         // Convert to Csv And Export
         const summaryCsvString = convertToCSV(summaryCsv);
         const summaryFileName = `${prolificID}_summary_data.csv`;
         const summaryBlob = new Blob([summaryCsvString], { type: "text/csv" });
-        jatos.uploadResultFile(summaryBlob, summaryFileName);
+        // jatos.uploadResultFile(summaryBlob, summaryFileName);
 
         jatos.startNextComponent();
       } else {
@@ -1123,7 +1102,7 @@ if (!window.gameInitialized) {
       type: "text/csv",
     });
 
-    jatos.uploadResultFile(randomisationBlob, randomisationFileName);
+    // jatos.uploadResultFile(randomisationBlob, randomisationFileName);
 
     //
     //
