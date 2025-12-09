@@ -42,8 +42,9 @@
           <span class="slider-label-right">10 (Very Energetic)</span>
   </div>
   <div><p style = "font-size: 1.7rem">Energy Value: <span id="energy-value">0</p></span></div>
+
     <button id="submit-button" style="margin-top: 30px; padding: 10px 25px; font-size: 16px;">
-    Submit
+    Show Environment
   </button>
           </div>
           </div>
@@ -84,7 +85,10 @@
 
 
       <div class="overlay"></div>
-      <div class="grid">
+      <div id="grid-wrapper"style = "display: flex; text-align: center;">
+      <div class = "instruction"><h2>Try to accumulate as many energy points as possible.</h2></div>
+      <div class="grid"></div>
+      <div class = "instruction"><h2>When you are done exploring, press "f" to advance to the next environment.</h2> </div>
       </div>
       <div class="energy-label">Energy Points: </div>
       <div class="energy-bar"></div>
@@ -95,8 +99,6 @@
 <div id="rating-screen" class = "hidden" >
 
   <h1 style = "margin: 15%">You have reached the end of the block. Now would be a good time to take a short break if you need one.</h1>
-
-
   
   <!-- Continue Button -->
   <button id="continue-button" style="margin-top: 20px; padding: 10px 25px; font-size: 16px;">

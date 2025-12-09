@@ -1178,7 +1178,7 @@ if (!window.gameInitialized) {
       setTimeout(() => {
         document.getElementById("modal2").classList.remove("hidden");
         document.querySelector(".overlay").classList.remove("hidden");
-      }, 3000); // Show Overlay
+      }, 5000); // Show Overlay
     });
   });
 }

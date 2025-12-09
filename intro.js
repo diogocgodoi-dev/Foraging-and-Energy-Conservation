@@ -1,4 +1,6 @@
 jatos.onLoad(() => {
+  jatos.addAbortButton();
+
   const prolificID = jatos.workerId || "unknown";
 
   const buttonPIS = document.querySelector("#button-PIS");
