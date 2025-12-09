@@ -591,6 +591,7 @@ if (!window.gameInitialized) {
 
           // Show grid
           grid.classList.remove("hidden");
+          document.querySelector("#grid-wrapper").style.display = "flex";
 
           // Set and log environment setup
           environmentSetup = `Randomised Order: ${randomisedOrderNumber} | Trial: ${trialNumber} | Environment: "${currentBackground}" | Season: ${season} | Reward: ${reward} | Rule: ${rule}`;
@@ -979,6 +980,7 @@ if (!window.gameInitialized) {
       document.querySelector(".energy-label").classList.add("hidden"); // Hide Energy label
 
       grid.classList.add("hidden"); // Hide Grid
+      document.querySelector("#grid-wrapper").style.display = "none";
 
       previousPositions = []; // Reset previous positions
 

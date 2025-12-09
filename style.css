@@ -70,12 +70,14 @@ button {
 #grid-wrapper {
   justify-content: center;
   align-items: center;
+  display: flex;
+  text-align: center;
 }
 
 .instruction {
-  margin: 0px 30px;
+  margin: 0px 50px;
   width: 250px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .reward {
