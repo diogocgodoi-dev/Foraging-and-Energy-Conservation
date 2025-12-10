@@ -892,9 +892,9 @@ if (!window.gameInitialized) {
 
     // Start Foraging
     let startForaging = function () {
-      let energyGuess = document.getElementById("energy-guess")?.value;
+    let energyGuess = Number(document.getElementById("energy-guess")?.value)
 
-      if (energyGuess) {
+      if (Number.isFinite(energyGuess)) {
         currentCondition = "Foraging";
         document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
         document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
