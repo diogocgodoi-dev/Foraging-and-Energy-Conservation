@@ -72,6 +72,10 @@ button {
   align-items: center;
   display: flex;
   text-align: center;
+  width: 110%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .instruction {

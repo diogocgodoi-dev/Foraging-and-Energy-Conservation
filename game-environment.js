@@ -571,7 +571,7 @@ if (!window.gameInitialized) {
           //       }
           //     });
 
-          //   //   objectIndex.forEach((val, idx) => {
+          //   objectIndex.forEach((val, idx) => {
           //       if (val !== 0) {
           //         cells[idx].classList.add("reward");
           //         cells[idx].style.backgroundColor = "rgba(11, 79, 98, 0.5)";
@@ -914,9 +914,9 @@ if (!window.gameInitialized) {
 
     // Start Foraging
     let startForaging = function () {
-      let energyGuess = document.getElementById("energy-guess")?.value;
+      let energyGuess = Number(document.getElementById("energy-guess")?.value)
 
-      if (energyGuess) {
+      if (Number.isFinite(energyGuess)) {
         currentCondition = "Foraging";
         document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
         document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
@@ -926,7 +926,7 @@ if (!window.gameInitialized) {
         document.addEventListener("keydown", moveForager); // Actually move the forager
       } else {
         alert(
-          "Please Indicate how many points you think are available in this environment."
+          "Please Indicate how the number of points you think are available in this environment."
         );
       }
     };
