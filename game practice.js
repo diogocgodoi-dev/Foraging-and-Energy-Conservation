@@ -892,7 +892,7 @@ if (!window.gameInitialized) {
 
     // Start Foraging
     let startForaging = function () {
-    let energyGuess = Number(document.getElementById("energy-guess")?.value)
+      let energyGuess = Number(document.getElementById("energy-guess")?.value);
 
       if (Number.isFinite(energyGuess)) {
         currentCondition = "Foraging";
@@ -920,9 +920,9 @@ if (!window.gameInitialized) {
     // Start Rest
 
     let startResting = function () {
-      let energyGuess = document.getElementById("energy-guess")?.value;
+      let energyGuess = Number(document.getElementById("energy-guess")?.value);
 
-      if (energyGuess) {
+      if (Number.isFinite(energyGuess)) {
         document.querySelector("#modal2").classList.add("hidden"); // Hide Modal
         document.querySelector(".overlay").classList.add("hidden"); // Hide Overlay
         document.querySelector("#resting-modal").classList.remove("hidden");
